@@ -71,10 +71,14 @@ class Test001(unittest.TestCase):
         'subtest_9': 1, # Login pulsando enter en el campo password
         'subtest_10': 1  # Login pulsando sobre el botón de login
     }
+    n_test_ok = 0
+    n_test_error = 0
 
     def setUp(self):
         self.browser = webdriver.Chrome("/Applications/chromedriver")
-
+        #self.browser = webdriver.Firefox("/Applications/geckodriver")
+        #self.browser = webdriver.Safari()
+        
     def test001(self):
         logger.info("Opening Chrome browser and open URL...")
         browser = self.browser
@@ -87,9 +91,11 @@ class Test001(unittest.TestCase):
         try:
             if "Kyros" in browser.title:
                 self.test_results['subtest_1'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_1'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_1: %s", str(error))
@@ -103,9 +109,11 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if format("Забыли пароль") in format(browser.page_source): 
                 self.test_results['subtest_2'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_2'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_2: %s", str(error))
@@ -119,9 +127,11 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if format("esqueceu sua senha") in browser.page_source: 
                 self.test_results['subtest_3'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_3'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_3: %s", str(error))
@@ -135,9 +145,11 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if format("Passwort vergessen") in browser.page_source: 
                 self.test_results['subtest_4'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_4'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_4: %s", str(error))
@@ -151,9 +163,11 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if format("votre mot de passe") in browser.page_source: 
                 self.test_results['subtest_5'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_5'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_5: %s", str(error))
@@ -167,9 +181,11 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if format("Forgot your password") in browser.page_source: 
                 self.test_results['subtest_6'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_6'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_6: %s", str(error))
@@ -183,9 +199,11 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if format("Olvidó su contraseña") in format(browser.page_source): 
                 self.test_results['subtest_7'] = 0
+                self.n_test_ok += 1
             else:
                 self.test_results['subtest_7'] = 1
                 self.test_result_code = 1
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_6: %s", str(error))
@@ -202,6 +220,7 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if "proporcionada" not in browser.page_source:
                 self.test_results['subtest_8'] = 0
+                self.n_test_ok += 1
                 button = browser.find_element_by_class_name('logoutIcon')
                 button.click()
                 time.sleep(1)
@@ -210,6 +229,7 @@ class Test001(unittest.TestCase):
                 time.sleep(2)
             else:
                 self.test_results['subtest_8'] = 1
+                self.n_test_error += 1
                 self.test_result_code = 2
             logger.debug("OK!")
         except Exception as error:
@@ -229,6 +249,7 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if "proporcionada" not in browser.page_source:
                 self.test_results['subtest_9'] = 0
+                self.n_test_ok += 1
                 button = browser.find_element_by_class_name('logoutIcon')
                 button.click()
                 time.sleep(1)
@@ -238,6 +259,7 @@ class Test001(unittest.TestCase):
             else:
                 self.test_results['subtest_9'] = 1
                 self.test_result_code = 2
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_9: %s", str(error))
@@ -257,6 +279,7 @@ class Test001(unittest.TestCase):
             time.sleep(1)
             if "proporcionada" not in browser.page_source:
                 self.test_results['subtest_10'] = 0
+                self.n_test_ok += 1
                 button = browser.find_element_by_class_name('logoutIcon')
                 button.click()
                 time.sleep(1)
@@ -266,6 +289,7 @@ class Test001(unittest.TestCase):
             else:
                 self.test_results['subtest_10'] = 1
                 self.test_result_code = 2
+                self.n_test_error += 1
             logger.debug("OK!")
         except Exception as error:
             logger.error("Error at subtest_10: %s", str(error))
@@ -273,7 +297,7 @@ class Test001(unittest.TestCase):
 
         # Volcar la salida a fichero
         results_file = open(RESULTS_FILE,'w') 
-        results_file.write (str(self.test_result_code) + "," + str(self.test_results['subtest_1']) + "," + str(self.test_results['subtest_2']) + "," + str(self.test_results['subtest_3']) + "," + str(self.test_results['subtest_4']) + "," + str(self.test_results['subtest_5']) + "," + str(self.test_results['subtest_6']) + "," + str(self.test_results['subtest_7']) + "," + str(self.test_results['subtest_8']) + "," + str(self.test_results['subtest_9']) + "," + str(self.test_results['subtest_10']))
+        results_file.write (str(time.strftime("%d/%m/%y - %I:%M:%S")) + "," + str(self.test_result_code) + "," + str(self.n_test_ok) + "," + str(self.n_test_error) + "," + str(self.test_results['subtest_1']) + "," + str(self.test_results['subtest_2']) + "," + str(self.test_results['subtest_3']) + "," + str(self.test_results['subtest_4']) + "," + str(self.test_results['subtest_5']) + "," + str(self.test_results['subtest_6']) + "," + str(self.test_results['subtest_7']) + "," + str(self.test_results['subtest_8']) + "," + str(self.test_results['subtest_9']) + "," + str(self.test_results['subtest_10']))
         results_file.close()
 
     def tearDown(self):
