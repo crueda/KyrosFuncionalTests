@@ -21,7 +21,8 @@ import logging, logging.handlers
 
 #### VARIABLES #########################################################
 from configobj import ConfigObj
-config = ConfigObj('./tests.properties')
+#config = ConfigObj('/Users/Carlos/Workspace/Kyros/KyrosFuncionalTests')
+config = ConfigObj('/opt/KyrosFuncionalTests/tests.properties')
 
 LOG_FILE = config['log_folder'] + "/tests.log"
 LOG_FOR_ROTATE = 10
@@ -31,6 +32,8 @@ RESULTS_FILE = config['result_file_test001_firefox']
 URL = config['url']
 USERNAME = config['username']
 PASSWORD = config['password']
+
+FIREFOX_DRIVER = config['firefox_driver']
 
 #### LOGGER #########################################################
 try:
@@ -75,7 +78,7 @@ class Test001(unittest.TestCase):
     n_test_error = 0
 
     def setUp(self):
-        self.browser = webdriver.Firefox("/Applications/geckodriver")
+        self.browser = webdriver.Firefox(FIREFOX_DRIVER)
         #self.browser = webdriver.Safari()
         
     def test001(self):
