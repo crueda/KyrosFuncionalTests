@@ -3,3 +3,5 @@ check.py
 check0.py
 *.log
 *.csv
+pruebas
+pruebas/*
