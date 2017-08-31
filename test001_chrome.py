@@ -21,7 +21,7 @@ import logging, logging.handlers
 
 #### VARIABLES #########################################################
 from configobj import ConfigObj
-#config = ConfigObj('/Users/Carlos/Workspace/Kyros/KyrosFuncionalTests')
+#config = ConfigObj('/Users/Carlos/Workspace/Kyros/KyrosFuncionalTests/tests.properties')
 config = ConfigObj('/opt/KyrosFuncionalTests/tests.properties')
 
 LOG_FILE = config['log_folder'] + "/tests.log"
@@ -79,7 +79,7 @@ class Test001(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome(CHROME_DRIVER)
-cd         #self.browser = webdriver.Safari()
+        #self.browser = webdriver.Safari()
         
     def test001(self):
         logger.info("Opening Chrome browser and open URL...")
