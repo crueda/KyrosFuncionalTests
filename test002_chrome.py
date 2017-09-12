@@ -22,8 +22,9 @@ from selenium.webdriver.support.ui import Select
 
 #### VARIABLES #########################################################
 from configobj import ConfigObj
-config = ConfigObj('/Users/Carlos/Workspace/Kyros/KyrosFuncionalTests/tests.properties')
-#config = ConfigObj('/opt/KyrosFuncionalTests/tests.properties')
+#config = ConfigObj('/Users/Carlos/Workspace/Kyros/KyrosFuncionalTests/tests.properties')
+config = ConfigObj('/home/acceso/scripts/tests.properties')
+
 
 LOG_FILE = config['log_folder'] + "/tests.log"
 LOG_FOR_ROTATE = 10
@@ -262,6 +263,8 @@ class Test002(unittest.TestCase):
 
             except:
                 logger.debug("Visualización de la flota -> Error")
+                self.test_result_code = 2
+                pass
 
             button = browser.find_element_by_class_name('logoutIcon')
             button.click()
@@ -317,8 +320,10 @@ class Test002(unittest.TestCase):
                 self.test_results['subtest_5'] = 0
                 self.n_test_ok += 1
                 logger.debug("Eliminar usuario -> OK!")
-            except:
+            except Exception as error:
                 logger.debug("Eliminar usuario -> Error")
+                self.test_result_code = 1
+                pass
 
 
             try:
@@ -360,6 +365,8 @@ class Test002(unittest.TestCase):
 
             except:
                 logger.debug("Eliminar flota -> OK!")
+                self.test_result_code = 1
+                pass
 
             #logout
             button = browser.find_element_by_class_name('logoutIcon')
