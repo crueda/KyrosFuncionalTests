@@ -65,7 +65,12 @@ class Test002(unittest.TestCase):
 
     test_result_code = 0 # 0=0k, 1=warning, 2=error
     test_results = {
-        'subtest_1': 1  # Crear flota
+        'subtest_1': 1,  # Crear flota
+        'subtest_2': 1,  # Crear usuario de flota
+        'subtest_3': 1,  # Login con el nuevo usuario
+        'subtest_4': 1,  # Comprobar visualización de la flota
+        'subtest_5': 1,  # Eliminar flota
+        'subtest_6': 1  # Eliminar usuario
     }
     n_test_ok = 0
     n_test_error = 0
@@ -80,8 +85,7 @@ class Test002(unittest.TestCase):
         #subtest_1
         logger.info("Launching subtest 1...")
         try:
-            browser.get("https://demos.kyroslbs.com")
-            #browser.get("http://localhost:8090")
+            browser.get(URL)
             time.sleep(1)
             username = browser.find_element_by_name("user")
             password = browser.find_element_by_name("password")
@@ -164,32 +168,12 @@ class Test002(unittest.TestCase):
             logger.debug("Rellenar la confirmación de contraseña")
             browser.find_elements_by_class_name("x-form-text")[24].send_keys("dat1234")
             logger.debug("Rellenar las posiciones en tiempo real")
-            #browser.find_elements_by_class_name("x-form-text")[25].send_keys("5")
-            #browser.find_elements_by_class_name("x-form-text")[25].send_keys(Keys.RETURN)
-            #logger.debug("Rellenar el tiempo de refresco")
-            #browser.find_elements_by_class_name("x-form-text")[26].send_keys("15")
-            #browser.find_elements_by_class_name("x-form-text")[26].send_keys(Keys.RETURN)
             logger.debug("Rellenar la fecha")
             browser.find_elements_by_class_name("x-form-text")[27].send_keys("31/12/18")
-            browser.find_elements_by_class_name("x-form-text")[27].send_keys(Keys.RETURN)
-            
+            browser.find_elements_by_class_name("x-form-text")[27].send_keys(Keys.RETURN)            
             logger.debug("Rellenar el idioma")
             browser.find_elements_by_class_name("x-form-text")[28].send_keys(unicode('es', errors='replace'))
             browser.find_elements_by_class_name("x-form-text")[28].send_keys(Keys.RETURN)
-            '''
-            logger.debug("Rellenar la cartografía")
-            browser.find_elements_by_class_name("x-form-text")[29].send_keys("Google Maps V3")
-            browser.find_elements_by_class_name("x-form-text")[29].send_keys(Keys.RETURN)
-            logger.debug("Rellenar las unidades de media")
-            browser.find_elements_by_class_name("x-form-text")[30].send_keys("Metro / Litro")
-            browser.find_elements_by_class_name("x-form-text")[30].send_keys(Keys.RETURN)
-            logger.debug("Rellenar el tipo de monitorización")
-            browser.find_elements_by_class_name("x-form-text")[31].send_keys("de flota")
-            browser.find_elements_by_class_name("x-form-text")[31].send_keys(Keys.RETURN)
-            logger.debug("Rellenar el formato de fecha")
-            browser.find_elements_by_class_name("x-form-text")[33].send_keys("dd/mm/aaaa")
-            browser.find_elements_by_class_name("x-form-text")[33].send_keys(Keys.RETURN)
-            '''
             logger.debug("Rellenar el tipo de monitorización")
             browser.find_elements_by_class_name("x-form-text")[31].send_keys("de flota")
             browser.find_elements_by_class_name("x-form-text")[31].send_keys(Keys.RETURN)
@@ -209,15 +193,7 @@ class Test002(unittest.TestCase):
             time.sleep(3)
 
             buttons = browser.find_elements_by_class_name("x-btn-text");            
-            i=0
-            for element in buttons:
-                #print str(i) + ": " + element.text
-                i+=1
 
-
-            #button = browser.find_element_by_link_text('BAJAS')
-            #button.click()
-            #time.sleep(5)
             browser.find_elements_by_class_name("x-btn-text")[52].click()
             time.sleep(1)
 
@@ -225,10 +201,6 @@ class Test002(unittest.TestCase):
             browser.find_elements_by_class_name("x-btn-text")[70].click()
 
             buttons = browser.find_elements_by_class_name("x-btn-text");            
-            i=0
-            for element in buttons:
-                #print str(i) + ": " + element.text
-                i+=1
 
             time.sleep(1)
             #añadir
@@ -239,10 +211,6 @@ class Test002(unittest.TestCase):
             time.sleep(1)
 
             buttons = browser.find_elements_by_class_name("x-btn-text");            
-            i=0
-            for element in buttons:
-                #print str(i) + ": " + element.text
-                i+=1
 
             #si
             browser.find_elements_by_class_name("x-btn-text")[87].click()
@@ -250,15 +218,14 @@ class Test002(unittest.TestCase):
 
             
             buttons = browser.find_elements_by_class_name("x-btn-text");            
-            i=0
-            for element in buttons:
-                #print str(i) + ": " + element.text
-                i+=1
-
 
             browser.find_elements_by_class_name("x-btn-text")[52].click()
             time.sleep(11)
 
+
+            self.test_results['subtest_2'] = 0
+            self.n_test_ok += 1
+            logger.debug("Creación de usuario -> OK!")
 
             #logout            
             button = browser.find_element_by_class_name('logoutIcon')
@@ -279,22 +246,22 @@ class Test002(unittest.TestCase):
             time.sleep(2)
 
             buttons = browser.find_elements_by_class_name("x-btn-text");            
-            i=0
-            for element in buttons:
-                #print str(i) + ": " + element.text
-                i+=1
 
-            #browser.find_elements_by_class_name("x-btn-text")[2].click()
-            #time.sleep(6)
+            self.test_results['subtest_3'] = 0
+            self.n_test_ok += 1
+            logger.debug("Login con el nuevo usuario -> OK!")
+
 
             try:
                 button = browser.find_element_by_link_text('0-TEST002')
-                print "se encuentra"
-                #print button
                 button.click()
                 time.sleep(6)
+                self.test_results['subtest_4'] = 0
+                self.n_test_ok += 1
+                logger.debug("Visualización de la flota -> OK!")
+
             except:
-                print "no se encuentra"
+                logger.debug("Visualización de la flota -> Error")
 
             button = browser.find_element_by_class_name('logoutIcon')
             button.click()
@@ -303,9 +270,7 @@ class Test002(unittest.TestCase):
             button[0].click()
             time.sleep(2)
 
-
-            browser.get("https://demos.kyroslbs.com")
-            #browser.get("http://localhost:8090")
+            browser.get(URL)
             time.sleep(1)
             username = browser.find_element_by_name("user")
             password = browser.find_element_by_name("password")
@@ -315,6 +280,7 @@ class Test002(unittest.TestCase):
             button_login = browser.find_element_by_xpath("//img[contains(@src, 'transparent.png')]") 
             button_login.click()
             time.sleep(5)
+
             #pulsar tab de administracion
             button = browser.find_element_by_class_name('adminIcon')
             button.click()
@@ -326,70 +292,74 @@ class Test002(unittest.TestCase):
 
 
             grids = browser.find_elements_by_class_name("x-grid3-col");            
-            i=0
-            encontrado = False
-            while (i<len(grids) and encontrado==False):
-                element = grids[i]
-                if (element.get_attribute("innerHTML")=='<div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">0-TEST002-user</div>'):
-                    print "operadoror encontrado"
-                    encontrado = True
-                    element.click()
-                i+=1
+            try:
+                i=0
+                encontrado = False
+                while (i<len(grids) and encontrado==False):
+                    element = grids[i]
+                    if (element.get_attribute("innerHTML")=='<div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">0-TEST002-user</div>'):
+                        encontrado = True
+                        element.click()
+                    i+=1
 
-            #eliminar operador
-            browser.find_elements_by_class_name("x-btn-text")[43].click()
-            time.sleep(1)
+                #eliminar operador
+                browser.find_elements_by_class_name("x-btn-text")[43].click()
+                time.sleep(1)
 
-            #si
-            browser.find_elements_by_class_name("x-btn-text")[41].click()
-            time.sleep(10)
+                #si
+                browser.find_elements_by_class_name("x-btn-text")[41].click()
+                time.sleep(10)
 
-            #aceptar
-            browser.find_elements_by_class_name("x-btn-text")[40].click()
-            time.sleep(3)
+                #aceptar
+                browser.find_elements_by_class_name("x-btn-text")[40].click()
+                time.sleep(3)
+
+                self.test_results['subtest_5'] = 0
+                self.n_test_ok += 1
+                logger.debug("Eliminar usuario -> OK!")
+            except:
+                logger.debug("Eliminar usuario -> Error")
 
 
-            #pulsar tab de administracion
-            button = browser.find_element_by_class_name('adminIcon')
-            button.click()
-            time.sleep(1)
-            #pulsar flotas
-            button = browser.find_element_by_link_text('Flotas')
-            button.click()
-            time.sleep(1)
+            try:
+                #pulsar tab de administracion
+                button = browser.find_element_by_class_name('adminIcon')
+                button.click()
+                time.sleep(1)
+                #pulsar flotas
+                button = browser.find_element_by_link_text('Flotas')
+                button.click()
+                time.sleep(1)
 
-            grids = browser.find_elements_by_class_name("x-grid3-col");            
-            i=0
-            encontrado = False
-            while (i<len(grids) and encontrado==False):
-                element = grids[i]
-                if (element.get_attribute("innerHTML")=='<div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">0-TEST002</div>'):
-                    print "flota encontrada"
-                    encontrado = True
-                    element.click()
-                i+=1
+                grids = browser.find_elements_by_class_name("x-grid3-col");            
+                i=0
+                encontrado = False
+                while (i<len(grids) and encontrado==False):
+                    element = grids[i]
+                    if (element.get_attribute("innerHTML")=='<div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">0-TEST002</div>'):
+                        print "flota encontrada"
+                        encontrado = True
+                        element.click()
+                    i+=1
 
-            #eliminar flota
-            browser.find_elements_by_class_name("x-btn-text")[51].click()
-            time.sleep(3)
+                #eliminar flota
+                browser.find_elements_by_class_name("x-btn-text")[51].click()
+                time.sleep(3)
 
-            #si
-            browser.find_elements_by_class_name("x-btn-text")[53].click()
-            time.sleep(1)
+                #si
+                browser.find_elements_by_class_name("x-btn-text")[53].click()
+                time.sleep(1)
 
-            #aceptar 
-            browser.find_elements_by_class_name("x-btn-text")[52].click()
-            time.sleep(1)
+                #aceptar 
+                browser.find_elements_by_class_name("x-btn-text")[52].click()
+                time.sleep(1)
 
-            '''
-            buttons = browser.find_elements_by_class_name("x-btn-text");            
-            i=0
-            for element in buttons:
-                print str(i) + "-> " + element.text
-                i+=1
+                self.test_results['subtest_6'] = 0
+                self.n_test_ok += 1
+                logger.debug("Eliminar flota -> OK!")
 
-            time.sleep(1)
-            '''
+            except:
+                logger.debug("Eliminar flota -> OK!")
 
             #logout
             button = browser.find_element_by_class_name('logoutIcon')
@@ -415,9 +385,9 @@ class Test002(unittest.TestCase):
             #pass
 
         # Volcar la salida a fichero
-        #results_file = open(RESULTS_FILE,'w') 
-        #results_file.write (str(time.strftime("%d/%m/%y - %I:%M:%S")) + "," + str(self.test_result_code) + "," + str(self.n_test_ok) + "," + str(self.n_test_error) + "," + str(self.test_results['subtest_1']) + "," + str(self.test_results['subtest_2']) + "," + str(self.test_results['subtest_3']) + "," + str(self.test_results['subtest_4']) + "," + str(self.test_results['subtest_5']) + "," + str(self.test_results['subtest_6']) + "," + str(self.test_results['subtest_7']) + "," + str(self.test_results['subtest_8']) + "," + str(self.test_results['subtest_9']) + "," + str(self.test_results['subtest_10']))
-        #results_file.close()
+        results_file = open(RESULTS_FILE,'w') 
+        results_file.write (str(time.strftime("%d/%m/%y - %I:%M:%S")) + "," + str(self.test_result_code) + "," + str(self.n_test_ok) + "," + str(self.n_test_error) + "," + str(self.test_results['subtest_1']) + "," + str(self.test_results['subtest_2']) + "," + str(self.test_results['subtest_3']) + "," + str(self.test_results['subtest_4']) + "," + str(self.test_results['subtest_5']) + "," + str(self.test_results['subtest_6']) )
+        results_file.close()
 
     def tearDown(self):
         logger.info("Closing Chrome browser...")

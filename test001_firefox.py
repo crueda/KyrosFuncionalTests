@@ -84,7 +84,8 @@ class Test001(unittest.TestCase):
     def test001(self):
         logger.info("Opening Chrome browser and open URL...")
         browser = self.browser
-        browser.get("https://demos.kyroslbs.com")
+        #browser.get("https://demos.kyroslbs.com")
+        browser.get(URL)
         logger.debug("OK!")
         time.sleep(1)
 
