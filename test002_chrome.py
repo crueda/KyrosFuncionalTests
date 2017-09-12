@@ -80,8 +80,8 @@ class Test002(unittest.TestCase):
         #subtest_1
         logger.info("Launching subtest 1...")
         try:
-            #browser.get("https://demos.kyroslbs.com")
-            browser.get("http://localhost:8090")
+            browser.get("https://demos.kyroslbs.com")
+            #browser.get("http://localhost:8090")
             time.sleep(1)
             username = browser.find_element_by_name("user")
             password = browser.find_element_by_name("password")
@@ -221,9 +221,6 @@ class Test002(unittest.TestCase):
             browser.find_elements_by_class_name("x-btn-text")[52].click()
             time.sleep(1)
 
-           
-
-
 
             browser.find_elements_by_class_name("x-btn-text")[70].click()
 
@@ -293,7 +290,7 @@ class Test002(unittest.TestCase):
             try:
                 button = browser.find_element_by_link_text('0-TEST002')
                 print "se encuentra"
-                print button
+                #print button
                 button.click()
                 time.sleep(6)
             except:
@@ -307,7 +304,8 @@ class Test002(unittest.TestCase):
             time.sleep(2)
 
 
-            browser.get("http://localhost:8090")
+            browser.get("https://demos.kyroslbs.com")
+            #browser.get("http://localhost:8090")
             time.sleep(1)
             username = browser.find_element_by_name("user")
             password = browser.find_element_by_name("password")
@@ -329,14 +327,77 @@ class Test002(unittest.TestCase):
 
             grids = browser.find_elements_by_class_name("x-grid3-col");            
             i=0
-            for element in grids:
-                print str(i) + ": " + element.get_attribute("innerHTML")
-                if (element.get_attribute("innerHTML")=='0-TEST002-user'):
-                    print "operadoro encontrado"
+            encontrado = False
+            while (i<len(grids) and encontrado==False):
+                element = grids[i]
+                if (element.get_attribute("innerHTML")=='<div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">0-TEST002-user</div>'):
+                    print "operadoror encontrado"
+                    encontrado = True
                     element.click()
                 i+=1
 
+            #eliminar operador
+            browser.find_elements_by_class_name("x-btn-text")[43].click()
+            time.sleep(1)
+
+            #si
+            browser.find_elements_by_class_name("x-btn-text")[41].click()
             time.sleep(10)
+
+            #aceptar
+            browser.find_elements_by_class_name("x-btn-text")[40].click()
+            time.sleep(3)
+
+
+            #pulsar tab de administracion
+            button = browser.find_element_by_class_name('adminIcon')
+            button.click()
+            time.sleep(1)
+            #pulsar flotas
+            button = browser.find_element_by_link_text('Flotas')
+            button.click()
+            time.sleep(1)
+
+            grids = browser.find_elements_by_class_name("x-grid3-col");            
+            i=0
+            encontrado = False
+            while (i<len(grids) and encontrado==False):
+                element = grids[i]
+                if (element.get_attribute("innerHTML")=='<div class="x-grid3-cell-inner x-grid3-col-0" unselectable="on">0-TEST002</div>'):
+                    print "flota encontrada"
+                    encontrado = True
+                    element.click()
+                i+=1
+
+            #eliminar flota
+            browser.find_elements_by_class_name("x-btn-text")[51].click()
+            time.sleep(3)
+
+            #si
+            browser.find_elements_by_class_name("x-btn-text")[53].click()
+            time.sleep(1)
+
+            #aceptar 
+            browser.find_elements_by_class_name("x-btn-text")[52].click()
+            time.sleep(1)
+
+            '''
+            buttons = browser.find_elements_by_class_name("x-btn-text");            
+            i=0
+            for element in buttons:
+                print str(i) + "-> " + element.text
+                i+=1
+
+            time.sleep(1)
+            '''
+
+            #logout
+            button = browser.find_element_by_class_name('logoutIcon')
+            button.click()
+            time.sleep(1)
+            button = browser.find_elements_by_xpath("//*[contains(text(), 'Sí')]")
+            button[0].click()
+            time.sleep(2)
 
         except Exception as error:
             logger.error("Error at subtest_1: %s", str(error))
