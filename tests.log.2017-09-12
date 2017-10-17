@@ -1,0 +1,105 @@
+2017-09-12 11:32:02,537 INFO Opening Chrome browser and open URL...
+2017-09-12 11:32:02,539 INFO Launching subtest 1...
+2017-09-12 11:32:14,498 DEBUG Rellenar el nombre de la flota
+2017-09-12 11:32:14,628 DEBUG Rellenar el nombre de la empresa
+2017-09-12 11:32:15,849 DEBUG Rellenar el comentario
+2017-09-12 11:32:16,141 DEBUG Pulsar el botón aceptar
+2017-09-12 11:32:17,429 DEBUG Creación de flota -> OK!
+2017-09-12 11:32:19,690 DEBUG Pulsar el botón nuevo operador
+2017-09-12 11:32:20,885 DEBUG Rellenar el username
+2017-09-12 11:32:21,089 DEBUG Rellenar el firstname
+2017-09-12 11:32:21,297 DEBUG Rellenar el lastname
+2017-09-12 11:32:21,508 DEBUG Rellenar el correo
+2017-09-12 11:32:21,759 DEBUG Rellenar la contraseña
+2017-09-12 11:32:21,884 DEBUG Rellenar la confirmación de contraseña
+2017-09-12 11:32:22,009 DEBUG Rellenar las posiciones en tiempo real
+2017-09-12 11:32:22,009 DEBUG Rellenar la fecha
+2017-09-12 11:32:22,175 DEBUG Rellenar el idioma
+2017-09-12 11:32:22,322 DEBUG Rellenar el tipo de monitorización
+2017-09-12 11:34:21,807 INFO Closing Chrome browser...
+2017-09-12 11:34:21,808 DEBUG OK!
+2017-09-12 11:36:45,101 INFO Opening Chrome browser and open URL...
+2017-09-12 11:36:45,101 INFO Launching subtest 1...
+2017-09-12 11:36:57,259 DEBUG Rellenar el nombre de la flota
+2017-09-12 11:36:57,393 DEBUG Rellenar el nombre de la empresa
+2017-09-12 11:36:58,604 DEBUG Rellenar el comentario
+2017-09-12 11:36:58,909 DEBUG Pulsar el botón aceptar
+2017-09-12 11:37:00,203 DEBUG Creación de flota -> OK!
+2017-09-12 11:37:02,481 DEBUG Pulsar el botón nuevo operador
+2017-09-12 11:37:03,675 DEBUG Rellenar el username
+2017-09-12 11:37:03,869 DEBUG Rellenar el firstname
+2017-09-12 11:37:04,117 DEBUG Rellenar el lastname
+2017-09-12 11:37:04,411 DEBUG Rellenar el correo
+2017-09-12 11:37:04,789 DEBUG Rellenar la contraseña
+2017-09-12 11:37:04,903 DEBUG Rellenar la confirmación de contraseña
+2017-09-12 11:37:05,022 DEBUG Rellenar las posiciones en tiempo real
+2017-09-12 11:37:05,022 DEBUG Rellenar la fecha
+2017-09-12 11:37:05,209 DEBUG Rellenar el idioma
+2017-09-12 11:37:05,349 DEBUG Rellenar el tipo de monitorización
+2017-09-12 11:38:46,080 INFO Closing Chrome browser...
+2017-09-12 11:38:46,080 DEBUG OK!
+2017-09-12 11:39:44,508 INFO Opening Chrome browser and open URL...
+2017-09-12 11:39:44,508 INFO Launching subtest 1...
+2017-09-12 11:40:01,881 DEBUG Rellenar el nombre de la flota
+2017-09-12 11:40:02,040 DEBUG Rellenar el nombre de la empresa
+2017-09-12 11:40:03,311 DEBUG Rellenar el comentario
+2017-09-12 11:40:03,608 DEBUG Pulsar el botón aceptar
+2017-09-12 11:40:04,872 DEBUG Creación de flota -> OK!
+2017-09-12 11:40:07,138 DEBUG Pulsar el botón nuevo operador
+2017-09-12 11:40:08,329 DEBUG Rellenar el username
+2017-09-12 11:40:08,533 DEBUG Rellenar el firstname
+2017-09-12 11:40:08,752 DEBUG Rellenar el lastname
+2017-09-12 11:40:09,002 DEBUG Rellenar el correo
+2017-09-12 11:40:09,341 DEBUG Rellenar la contraseña
+2017-09-12 11:40:09,454 DEBUG Rellenar la confirmación de contraseña
+2017-09-12 11:40:09,574 DEBUG Rellenar las posiciones en tiempo real
+2017-09-12 11:40:09,574 DEBUG Rellenar la fecha
+2017-09-12 11:40:09,744 DEBUG Rellenar el idioma
+2017-09-12 11:40:09,881 DEBUG Rellenar el tipo de monitorización
+2017-09-12 11:42:01,016 INFO Closing Chrome browser...
+2017-09-12 11:42:01,016 DEBUG OK!
+2017-09-12 11:43:16,325 INFO Opening Chrome browser and open URL...
+2017-09-12 11:43:16,325 INFO Launching subtest 1...
+2017-09-12 11:43:43,280 DEBUG Rellenar el nombre de la flota
+2017-09-12 11:43:43,424 DEBUG Rellenar el nombre de la empresa
+2017-09-12 11:43:44,647 DEBUG Rellenar el comentario
+2017-09-12 11:43:44,899 DEBUG Pulsar el botón aceptar
+2017-09-12 11:43:54,205 DEBUG Creación de flota -> OK!
+2017-09-12 11:43:56,526 DEBUG Pulsar el botón nuevo operador
+2017-09-12 11:43:57,720 DEBUG Rellenar el username
+2017-09-12 11:43:57,917 DEBUG Rellenar el firstname
+2017-09-12 11:43:58,175 DEBUG Rellenar el lastname
+2017-09-12 11:43:58,445 DEBUG Rellenar el correo
+2017-09-12 11:43:58,716 DEBUG Rellenar la contraseña
+2017-09-12 11:43:58,829 DEBUG Rellenar la confirmación de contraseña
+2017-09-12 11:43:58,946 DEBUG Rellenar las posiciones en tiempo real
+2017-09-12 11:43:58,946 DEBUG Rellenar la fecha
+2017-09-12 11:43:59,159 DEBUG Rellenar el idioma
+2017-09-12 11:43:59,301 DEBUG Rellenar el tipo de monitorización
+2017-09-12 11:45:47,720 INFO Closing Chrome browser...
+2017-09-12 11:45:47,721 DEBUG OK!
+2017-09-12 13:29:14,447 INFO Opening Chrome browser and open URL...
+2017-09-12 13:29:14,447 INFO Launching subtest 1...
+2017-09-12 13:29:41,274 DEBUG Rellenar el nombre de la flota
+2017-09-12 13:29:41,403 DEBUG Rellenar el nombre de la empresa
+2017-09-12 13:29:42,649 DEBUG Rellenar el comentario
+2017-09-12 13:29:42,910 DEBUG Pulsar el botón aceptar
+2017-09-12 13:29:59,179 DEBUG Creación de flota -> OK!
+2017-09-12 13:30:06,463 DEBUG Pulsar el botón nuevo operador
+2017-09-12 13:30:12,666 DEBUG Rellenar el username
+2017-09-12 13:30:12,849 DEBUG Rellenar el firstname
+2017-09-12 13:30:13,051 DEBUG Rellenar el lastname
+2017-09-12 13:30:13,232 DEBUG Rellenar el correo
+2017-09-12 13:30:13,493 DEBUG Rellenar la contraseña
+2017-09-12 13:30:13,636 DEBUG Rellenar la confirmación de contraseña
+2017-09-12 13:30:13,741 DEBUG Rellenar las posiciones en tiempo real
+2017-09-12 13:30:13,741 DEBUG Rellenar la fecha
+2017-09-12 13:30:13,906 DEBUG Rellenar el idioma
+2017-09-12 13:30:14,030 DEBUG Rellenar el tipo de monitorización
+2017-09-12 13:31:14,008 DEBUG Creación de usuario -> OK!
+2017-09-12 13:31:32,611 DEBUG Login con el nuevo usuario -> OK!
+2017-09-12 13:31:38,829 DEBUG Visualización de la flota -> OK!
+2017-09-12 13:32:12,105 DEBUG Eliminar usuario -> OK!
+2017-09-12 13:32:32,465 DEBUG Eliminar flota -> OK!
+2017-09-12 13:32:35,695 INFO Closing Chrome browser...
+2017-09-12 13:32:35,696 DEBUG OK!
